@@ -36,7 +36,7 @@ $ booktag
 ![Screenshot](docs/screenshot.png)
 
 ### FAQ
-Q: Where are bookmarks stored?
+Q: Where are bookmarks stored?  
 A: Booktag use NeDb, all bookmarks are stored in a single file, JSON format.
 
     dummyano@caos /booktag/app (git)-[master] % cat data/booktag.db                                                                           :(
