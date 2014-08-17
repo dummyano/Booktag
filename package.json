@@ -1,0 +1,31 @@
+{
+  "name": "booktag",
+  "version": "0.0.0",
+  "description": "Bookmarks!Tagged!On your machine!",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "."
+  },
+  "keywords": [
+    "bookmark",
+    "tags"
+  ],
+  "author": "dummyano",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^3.2.0",
+    "jquery": "^2.1.1",
+    "nedb": "^0.10.7",
+    "nodewebkit": "^0.10.0"
+  },
+  "window": {
+    "show" : false,
+    "toolbar": false,
+    "width": 640,
+    "height": 480
+  }
+}

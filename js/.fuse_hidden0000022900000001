@@ -1,0 +1,109 @@
+$(document).ready(function(){
+
+    /*
+        *******
+        BACKEND
+        *******
+    */
+
+    /* Setup db */
+    var Nedb = require("nedb");
+    var db = new Nedb({
+        filename: '../data/booktag.db',
+        autoload: true
+    });
+
+    /* Insert */
+    function btBSaveBookmark(www,tags,comment){
+        db.insert({
+            www: www,
+            tags: tags,
+            comment: comment
+        },function(err, newDoc){
+            if (err){ btError(1); }
+            else { btFUpdateList(); }
+        });
+    }
+
+    /*  Remove
+        https://github.com/louischatriot/nedb#removing-documents
+     */
+    // function btBRemoveBookmark(id){
+    //     db.remove({
+    //         www: www,
+    //         tags: tags,
+    //         comment: comment
+    //     },function(err, newDoc){
+    //         if (err){ btError(1); }
+    //         else { btFUpdateList(); }
+    //     });
+    // }
+
+
+
+    /* btNotify */
+    function btNotify(code){
+        // 1 - insert ok
+        alert("insert ok");
+    }
+
+    /* btError */
+    function btError(code){
+        // 1 - insert error
+
+        alert("insert ok");
+    }
+
+    /*
+        ********
+        FRONTEND
+        ********
+    */
+
+    /* Frontend Insert */
+    $('input[type="submit"]').click(function(){
+        btBSaveBookmark(
+            $('input[name="www"]').val(),
+            $('input[name="tags"]').val(),
+            $('input[name="comment"]').val()
+            );
+
+    });
+
+    /* Update List */
+    function btFUpdateList(){
+        //fixme: for a start, we trash and load everything back
+
+        //find all docs
+        db.find({},function(err,docs){
+            if (err) btError(2)
+            else {
+                console.log(docs);
+
+                // //trash old html list
+                $('listbookmarks>ul').empty();
+
+                //create a new li for each doc
+                var list = $("#listbookmarks>ul");
+                $.each(docs,function(i){
+                    var li = $("<li/>").appendTo(list);
+                        $("<span/>").text(docs[i]["www"]).appendTo(li);
+                        $("<span/>").text(docs[i]["tags"]).appendTo(li);
+                        $("<span/>").text(docs[i]["comment"]).appendTo(li);
+                });
+            }
+        });
+
+    }
+
+
+     /*
+        ********
+        STARTUP
+        ********
+    */
+
+    btFUpdateList();
+
+
+});

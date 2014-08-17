@@ -1,0 +1,103 @@
+body {
+    width: 640px;
+    height: 480px;
+    overflow: auto;
+}
+
+.icons{
+    margin:3px;
+}
+.operations{
+  text-align: right;
+  font-size:80%;
+  color: rgb(150,150,150);
+  border-top: 1px solid lightgray;
+  padding-top: 5px;
+  margin-top: 5px;
+}
+
+
+.labels{
+    font-size:150%;
+    color: gray;
+}
+.save {
+  color: green;
+}
+.cancel {
+  color: gray;
+}
+.remove{
+  color: red;
+}
+
+.reset{
+    font-size:70%;
+}
+.reset.icons {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}
+
+.omnibar{
+    background-color: #eee;
+    overflow: auto;
+    padding: 5px;
+}
+.omnibar #omnisearch{
+    display: inline-block;
+}
+.omnibar #omnisearch>input{
+    min-width: 300px;
+}
+.omnibar #add_bookmark_button{
+    display: inline-block;
+    border:1px solid lightgray;
+}
+.omnibar #add_bookmark_panel{
+    margin-top: 5px;
+    padding-top: 5px;
+    border-top: 1px solid lightgray;
+}
+
+.tags_list{
+    float:left;
+    width: 150px;
+    min-height: 300px;
+    padding: 5px;
+    /*outline: 1px solid red;*/
+    overflow: auto;
+}
+.tags_list>ul{
+  list-style-type: none;
+  padding:0;
+  margin: 5px 0 0 5px;
+}
+.tags_list .icons{
+  color: rgb(239,50,50);
+}
+
+.bookmarks_list{
+    float:left;
+    width: 480px;
+    padding: 5px;
+    min-height: 300px;
+    /*outline: 1px solid blue;*/
+    overflow: auto;
+}
+.bookmarks_list>ul{
+  list-style-type: none;
+  padding:0;
+  margin: 5px 0 0 5px;
+}
+
+.bookmark_details{
+  margin-left:20px;
+}
+.bookmark_details .icons{
+  margin-right:10px;
+}

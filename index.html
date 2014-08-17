@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Booktag</title>
+
+    <script type='text/javascript' id='lt_ws' src='http://localhost:41010/socket.io/lighttable/ws.js'></script>
+
+    <!-- jquery -->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Booktag -->
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/app.js"></script>
+
+</head>
+<body>
+    <div id="omnibar" class="omnibar">
+
+        <!-- Omnisearch -->
+        <div id="omnisearch">
+            <span class="icons glyphicon glyphicon-search"></span>
+            <span>Search:</span>
+            <input type="text" placeholder="free text search everywhere">
+        </div>
+
+        <!-- Add bookmark -->
+        <div id="add_bookmark_button" onclick="$('#add_bookmark_panel').slideToggle();">
+            <span class="icons glyphicon glyphicon-plus"></span>
+            <span>Add</span>
+        </div>
+        <div id="add_bookmark_panel" style="display:none;">
+        <span>Add new bookmark:</span>
+            <form action="">
+                <input type="text" value="" name="www" placeholder="http://awesomesite.com">
+                <input type="text" value="" name="tags" placeholder="I'll,search,you,with,this,tags">
+                <input type="text" value="" name="comment" placeholder="and I bookmarked this coz...?">
+                <input type="submit">
+            </form>
+        </div>
+    </div>
+
+    <!-- Tag list -->
+    <div id="tags_list" class="tags_list">
+        <div id="header" class="header">
+            <span class="icons glyphicon glyphicon-tags"></span>
+            <span class="labels">tags</span>
+        </div>
+        <div id="tags_reset">
+            <span class="reset icons glyphicon glyphicon-repeat"></span>
+            <span class="reset labels">reset</span>
+        </div>
+        <ul></ul>
+    </div>
+
+
+    <!-- Bookmark list -->
+    <div id="bookmarks_list" class="bookmarks_list">
+        <div id="header" class="header">
+            <span class="icons glyphicon glyphicon-book"></span>
+            <span class="labels">bookmarks</span>
+        </div>
+        <ul></ul>
+    </div>
+
+</body>
+</html>
