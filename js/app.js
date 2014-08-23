@@ -412,6 +412,8 @@
 
         //console.log(tags);
 
+        tags.sort();
+
         // Trash old html list
         $('#tags_list>ul').empty();
 
@@ -576,10 +578,8 @@ $(document).ready(function(){
         autoload: true
     });
 
-
     var gui = require('nw.gui');
 
-    
     /*  Script / App Mode 
      *  With command line arguments => script mode, 
      *  otherwise => app mode */
