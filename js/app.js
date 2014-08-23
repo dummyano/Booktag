@@ -1,3 +1,8 @@
+  /* naming scheme
+      bt for booktag
+      B for backend
+      F for frontend
+      so btBfunction for backend function */
 
     /*  ====================
               BACKEND
@@ -94,7 +99,7 @@
     }
     */
 
-   /*  Free search, simply a wrapper for db */
+   /*  Free search, simply a wrapper for db find */
 
    function btBFind(criteria,callback){
 
@@ -216,9 +221,14 @@
             $("<a></a>")
               .attr('href', bookmarks[i]["www"])
               .text(bookmarks[i]["www"])
+              .click(function(event){
+                  event.preventDefault();
+                  btFOpenBookmark(bookmarks[i]["www"]);
+                })
               .appendTo(li);
         });
     }
+
 
     /* Provide a panel to show/edit bookmarks details */
 
@@ -298,6 +308,7 @@
       }); //end of db find callback
     }
 
+
     function btFRemoveBookmark(id){
       var id = id.data; //jquery click event
 
@@ -307,7 +318,8 @@
         });
     }
 
-    /* Edit bookmark detail */ //-------------------------------------------------------------------------------------------------
+
+    /* Edit bookmark detail */
 
     function btFEditBookmark(id){
 
@@ -421,8 +433,8 @@
               .text(tags[i])
               .appendTo(li);
         });
-
     }
+
 
     /* Search with freetext for bookmark/tags/comments */
 
@@ -453,7 +465,8 @@
       );
     }
 
-    /* Convenience method to say: reload all bookmarks/tags */
+
+    /* Convenience methods to say: reload all bookmarks/tags */
 
     function btFRefreshBookmarksList(){
 
@@ -484,6 +497,7 @@
 
     }
 
+
    /* Filter By tag */
 
     function btFFilterBookmarkByTag(tag){
@@ -499,6 +513,15 @@
       btBFind({tags: new RegExp(tag)}, btFUpdateBookmarksList);
 
     };
+
+
+    /* Open a bookmark in default browser */
+    // https://groups.google.com/forum/#!topic/node-webkit/LIcbwBrF_CI
+
+    function btFOpenBookmark(url){
+
+      require('nw.gui').Shell.openExternal(url);
+    }
 
 
    /* ====================
@@ -538,7 +561,6 @@ $(document).ready(function(){
         btFRefreshTagsList();
 
     });
-
 });
 
     /* ====================
